@@ -1,36 +1,30 @@
+import java.util.Scanner;
+
 class Main {
   public static void main(String[] args) {
-    printData(fullName("kate","jones"),27,1.6,50.0);
-    printData(fullName("John", "Christopher", "Smith"), 65, 1.75, 80.0);
-  }
+    Scanner scanner = new Scanner(System.in);
 
-  public static void printData(String name, int age, double height, double weight) {
-    System.out.println("私の名前は" + name + "です");
-    System.out.println("年齢は" + age + "歳です");
-    System.out.println("身長は" + height + "mです");
-    System.out.println("体重は" + weight + "kgです");
-    double bmi = bmi(height, weight);
-    System.out.println("BMIは" + bmi + "です");
+    System.out.print("名前: ");
 
-    if (isHealthy(bmi)) {
-      System.out.println("健康です");
-    }  else
-      System.out.println("健康ではありません");
-  }
+    String firstName = Scanner.next();
 
-  public static String fullName(String firstName, String lastName) {
-    return firstName + " " + lastName;
-  }
+    System.out.print("名字: ");
 
-  public static String fullName(String firstName,String middleName, String lastName) {
-    return firstName + " " + middleName + " " + lastName;
-  }
+    String lastName = Scanner.next();
 
-  public static double bmi(double height, double weight) {
-    return weight / height / height;
-  }
+    System.out.print("年齢: ");
 
-  public static boolean isHealthy(double bmi) {
-    return bmi >= 18.5 && bmi < 25.0;
+    int age = scanner.nextint();
+
+    System.out.print("身長: ");
+
+    double height = scanner.nextDouble();
+
+    System.out.print("体重(kg): ");
+
+    double weight = scanner.nextDouble();
+
+
+    Person.printData(Person.fullName(firstName, lastName), age, height, weight);
   }
 }
